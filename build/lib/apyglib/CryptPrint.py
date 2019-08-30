@@ -1,13 +1,17 @@
 
-import sys, string, crypt, math
+import sys
+import crypt
+
 
 class CryptPrint(object):
-# Init
+
+    # Init
     def __init__(self):
-        self.cryptprint=True
-# Crypt printing.
-    def printNewPasswordsCrypt(self,pword,l,m):
-        count = 0
-        if pword:
+        self.cryptprint = True
+
+    # Crypt printing.
+    def printNewPasswordsCrypt(self, pword, l, m):
+        pw = ""
+        if pw:
             sys.stdout.write(" ")
-	sys.stdout.write(crypt.crypt(pword,pword[(len(pword)-m)-(l%m):]))
+        sys.stdout.write(crypt.crypt(pw, pw[(len(pw) - m) - (l % m):]))

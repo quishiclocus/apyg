@@ -80,5 +80,5 @@ while len(g.pwords) > 0:
         p.printNewPasswordsCrypt(newpword, opt.l, opt.m)
     if opt.phoenetic:
         p = Phoenetic()
-    p.printNewPasswordsPhoenetic(newpword)
+        p.printNewPasswordsPhoenetic(newpword)
     sys.stdout.write("\n")
