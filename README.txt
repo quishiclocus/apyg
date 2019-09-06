@@ -21,7 +21,7 @@ Defaults: 1 password, 8 characters long
 **NOTE: If you use the crypt function, it is best to have a diverse set of
 minimum and maximum lengths.
 
-Bugs: apyg@ozymo.com
+Bugs: chuck.stearns@gmail.com
 
 Changelog:
 
