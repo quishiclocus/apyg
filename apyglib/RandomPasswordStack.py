@@ -17,12 +17,12 @@ class RandomPasswordStack(object):
         tmps = []    # List of characters
         random.seed(jseed or
                     random.uniform(100.00, 999.9) / random.uniform(4.0, 9.9))
-        d = [random.choice(string.digits) for x in xrange(jlen)]
-        c = [random.choice(string.letters) for x in xrange(jlen)]
+        d = [random.choice(string.digits) for x in range(jlen)]
+        c = [random.choice(string.ascii_letters) for x in range(jlen)]
         tmps += d
         tmps += c
         if jspc:
-            sp = [random.choice(string.punctuation) for x in xrange(jlen)]
+            sp = [random.choice(string.punctuation) for x in range(jlen)]
             tmps += sp
         s = self.cleanpool(tmps)
         random.shuffle(s)
@@ -40,11 +40,11 @@ class RandomPasswordStack(object):
     def strictpool(self, pool, strict):
         check1 = check2 = check3 = check4 = False
         for chk in pool:
-            if chk in string.lowercase:
+            if chk.lower():
                 check1 = True
                 break
         for chk in pool:
-            if chk in string.uppercase:
+            if chk.upper():
                 check2 = True
                 break
         for chk in pool:
@@ -66,7 +66,7 @@ class RandomPasswordStack(object):
         c = ''
         apass = ''
         pool = self.genpool(l, m, s, sp, str)
-        for k in xrange(random.randint(m, l)):
+        for k in range(random.randint(m, l)):
             random.shuffle(pool)
             while pool[k] == c:
                 del pool[k]
@@ -84,6 +84,6 @@ class RandomPasswordStack(object):
             newpword = self.pwords.pop()
             return newpword
         else:
-            print "No more passwords."
+            print("No more passwords.")
 # End of class RandomPasswordStack
 ###############

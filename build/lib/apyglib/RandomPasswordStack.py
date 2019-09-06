@@ -84,6 +84,6 @@ class RandomPasswordStack(object):
             newpword = self.pwords.pop()
             return newpword
         else:
-            print "No more passwords."
+            print("No more passwords.")
 # End of class RandomPasswordStack
 ###############
