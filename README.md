@@ -1,6 +1,6 @@
-Version: apyg-0.8b
+Version: apyg-0.8c
 
-Requirements: Python 2.6
+Requirements: Python 2.7 or higher
 
 usage: apyg [-h] [-p] [-s] [-y] [-n N] [-l L] [-m M] [-c SEED]
 
@@ -24,6 +24,8 @@ minimum and maximum lengths.
 Bugs: chuck.stearns@gmail.com
 
 Changelog:
+
+0.8c - Updated the code to be Python 3 compliant. 190906
 
 0.8b - Added an argument to specify inclusion of special characters. 120906
 
