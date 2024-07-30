@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/Users/chuck/.pyenv/versions/apyg-py3/bin/python
 
 '''
 clstearns, 2010
@@ -58,13 +58,13 @@ if opt.m > opt.l:
 if opt.strict:
     # imply special characters
     opt.special_chars = True
-    # print("Strict checks are still under development. \
-    #      Don't rely on them... yet.")
+    print("Strict checks are still under development.
+          Don't rely on them... yet.")
 
 g = RandomPasswordStack()
 
 # Create i passwords of j length
-for x in range(opt.n):
+for x in xrange(opt.n):
     g.push(opt.l, opt.m, opt.seed, opt.special_chars, opt.strict)
 
 # Print passwords
@@ -73,8 +73,7 @@ while len(g.pwords) > 0:
     sys.stdout.write(newpword)
 # Strict checking
     if g.strictpool(newpword, opt.strict) is True and opt.strict is True:
-        # sys.stdout.write(" --> passes strict checks")
-        sys.stdout.write("")
+        sys.stdout.write(" --> passes strict checks")
 # Alternate print options
     if opt.crypt:
         p = CryptPrint()
