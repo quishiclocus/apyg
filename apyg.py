@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 
 '''
-clstearns, 2010
-v 0.8b
+quishiclocus, 2024
+v 0.9.0
 
 Generate random alphanumeric strings.
-See README.txt for usage and installation.
+See README for usage and installation.
 '''
 
 # Standard Library Imports

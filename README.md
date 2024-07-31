@@ -1,6 +1,6 @@
-Version: apyg-0.8c
+Version: apyg-0.9.0
 
-Requirements: Python 2.7 or higher
+Requirements: Python 3 or higher
 
 usage: apyg [-h] [-p] [-s] [-y] [-n N] [-l L] [-m M] [-c SEED]
 
@@ -19,11 +19,13 @@ optional arguments:
 Defaults: 1 password, 8 characters long
 
 **NOTE: If you use the crypt function, it is best to have a diverse set of
-minimum and maximum lengths.
+minimum and maximum lengths. Also, the crypt function is currently broken.
 
 Bugs: chuck.stearns@gmail.com
 
 Changelog:
+
+0.9.0 - Finally pushed the commits for updating to Python3 syntax.
 
 0.8c - Updated the code to be Python 3 compliant. 190906
 
