@@ -1,9 +1,16 @@
-
+""" Modules provide system print functions. """
 import sys
 
 
-class Phoenetic(object):
+class Phoenetic():
+    """Phoenetic Class
+
+    Attributes
+    ----------
+    Send the password in, get phoenetic printout back.
+    """
     # Init
+
     def __init__(self):
         # Phoenetic Alphabet.
         self.phoenetics = {"A": "Alpha",
@@ -96,12 +103,23 @@ class Phoenetic(object):
                            "}": "Close-Curly-Bracket"}
 
     # Phoenetic printing.
-    def printNewPasswordsPhoenetic(self, pword):
+    def print_new_password_phoenetic(self, pword):
+        """print_new_password_phoenetic
+
+        Prints phoenetic spelling of generated password.
+        """
         count = 0
         if pword:
             sys.stdout.write(" ")
         for j in pword:
             sys.stdout.write(self.phoenetics[j])
-            if (count < (len(pword) - 1)):
+            if count < (len(pword) - 1):
                 sys.stdout.write("_")
             count += 1
+
+    def phoenetic_function(self):
+        """phoenetic_function
+
+        TBD in future.
+        """
+        return
