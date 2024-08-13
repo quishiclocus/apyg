@@ -2,21 +2,25 @@ Version: apyg-0.9.1
 
 Requirements: Python 3 or higher
 
-usage: apyg [-h] [-p] [-s] [-y] [-n N] [-l L] [-m M] [-c SEED]
+```
+usage: apyg.py [-h] [-V] [-t] [-p] [-s] [-y] [-n N] [-l L] [-m M] [-c SEED]
 
 A random password generator
 
-optional arguments:
--h, --help show this help message and exit
--p, --phoenetic spell each password phoenetically
--s, --spec-chars use special characters
--y, --crypt print cryptographic hash of password
--n N, --number N number of passwords to generate
--l L, --maxlen L maximum length of passwords
--m M, --minlen M if not defined, length is L
--c SEED, --seed SEED custom seed string
+options:
+  -h, --help            show this help message and exit
+  -V, -v, --version     show program's version number and exit
+  -t, --strict          require 1 each of upper, lower, digit, and special
+  -p, --phoenetic       spell each password phoenetically
+  -s, --spec-chars      use special characters
+  -y, --crypt           print cryptographic hash of password
+  -n N, --number N      no. of passwords to generate
+  -l L, --maxlen L      maximum length of passwords
+  -m M, --minlen M      if not defined, length is L
+  -c SEED, --seed SEED  custom seed string, for repeatability
 
 Defaults: 1 password, 8 characters long
+```
 
 \*\*NOTE: If you use the crypt function, it is best to have a diverse set of
 minimum and maximum lengths. Also, the crypt function is currently broken.
