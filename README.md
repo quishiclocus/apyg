@@ -1,4 +1,4 @@
-Version: apyg-0.9.1
+Version: apyg.py 0.9.1
 
 Requirements: Python 3 or higher
 
