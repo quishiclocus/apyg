@@ -5,8 +5,9 @@ https://packaging.python.org/guides/distributing-packages-using-setuptools/
 https://github.com/pypa/sampleproject
 """
 
-from setuptools import setup, find_packages
 import pathlib
+from setuptools import setup, find_packages
+from apyglib import __version__
 
 here = pathlib.Path(__file__).parent.resolve()
 
@@ -15,7 +16,7 @@ long_description = (here / "README.md").read_text(encoding="utf-8")
 
 setup(
     name="apyg",  # Required
-    version="0.9.0",  # Required
+    version=__version__,  # Required
     description="A random password generator",  # Optional
     long_description=long_description,  # Optional
     long_description_content_type="text/plain",  # Optional (see note above)

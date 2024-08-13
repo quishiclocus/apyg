@@ -2,7 +2,7 @@
 
 """
 quishiclocus, 2024
-v 0.9.0
+v 0.9.1
 
 Generate random alphanumeric strings.
 See README for usage and installation.
@@ -15,13 +15,15 @@ import sys
 from apyglib.crypt_print import CryptPrint
 from apyglib.phoenetic import Phoenetic
 from apyglib.random_password_stack import RandomPasswordStack
+from apyglib import __version__
 
 # Set up default values and arguments with argparse
 o = argparse.ArgumentParser(
     description="A random password generator",
     epilog="Defaults: 1 password, 8 characters long",
 )
-
+o.add_argument("-V", "-v", "--version",
+               action="version", version="%(prog)s " + __version__)
 o.add_argument(
     "-t",
     "--strict",
@@ -51,12 +53,12 @@ o.add_argument(
     "--crypt",
     action="store_true",
     dest="crypt",
-    help="print crypt hash of password",
+    help="print cryptographic hash of password",
 )
 o.add_argument(
     "-n", "--number", type=int, dest="n", help="no. of passwords to generate"
 )
-o.add_argument("-l", "--maxlen", type=int, dest="plen",
+o.add_argument("-l", "--maxlen", type=int, dest="l",
                help="maximum length of passwords")
 o.add_argument(
     "-m",
@@ -70,7 +72,7 @@ o.add_argument("-c", "--seed", dest="seed",
                default=False,
                help="custom seed string, for repeatability")
 
-o.set_defaults(n=1, plen=8)
+o.set_defaults(n=1, l=16)
 
 opt = o.parse_args()
 
@@ -79,11 +81,11 @@ opt = o.parse_args()
 # Do some checks on m to make sure it is equal to l if unset, or smaller than l
 # if set larger.
 if opt.m == 0:
-    opt.m = opt.plen
-if opt.m > opt.plen:
-    print("Switched max(", opt.plen, ") and min(", opt.m, ")...")
-    c = opt.plen
-    opt.plen = opt.m
+    opt.m = opt.l
+if opt.m > opt.l:
+    print("Switched max(", opt.l, ") and min(", opt.m, ")...")
+    c = opt.l
+    opt.l = opt.m
     opt.m = c
 if opt.strict:
     # imply special characters
@@ -95,7 +97,7 @@ g = RandomPasswordStack()
 
 # Create i passwords of j length
 for x in range(opt.n):
-    g.push(opt.plen, opt.m, opt.seed, opt.special_chars)
+    g.push(opt.l, opt.m, opt.seed, opt.special_chars)
 
 # Print passwords
 while len(g.pwords) > 0:
@@ -109,7 +111,7 @@ while len(g.pwords) > 0:
     # Cryptographic hashing
     if opt.crypt:
         p = CryptPrint()
-        p.print_new_password_crypt(newpword, opt.seed, opt.plen)
+        p.print_new_password_crypt(newpword, opt.seed, opt.l)
     # Strict checking
     if g.strictpool(newpword) is True and opt.strict is True:
         sys.stdout.write(" --> passes strict checks")

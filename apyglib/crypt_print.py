@@ -22,6 +22,7 @@ class CryptPrint():
         Generates a crypt hash using the generated password,
         the optional seed, and the optional length.
         """
+        digest_size = 4
         sys.stdout.write(" hash:")
         if len_d:
             digest_size = int(len_d)

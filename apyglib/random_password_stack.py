@@ -4,10 +4,6 @@ import string
 import random
 
 
-###############
-# RandomPasswordStack class:
-# This class is used to build the Random Password Stack. pwords
-# is the list of passwords.
 class RandomPasswordStack():
     """RandomPasswordStack
 
@@ -111,5 +107,3 @@ class RandomPasswordStack():
             raise EnvironmentError()
         newpword = self.pwords.pop()
         return newpword
-# End of class RandomPasswordStack
-###############
