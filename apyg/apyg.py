@@ -13,9 +13,9 @@ import argparse
 import sys
 
 # Custom Library Imports
-from apyglib.phoenetic import Phoenetic
-from apyglib.crypt_print import CryptPrint
 from apyglib.random_password_stack import RandomPasswordStack
+from apyglib.crypt_print import CryptPrint
+from apyglib.phoenetic import Phoenetic
 from __init__ import __version__
 
 # Set up default values and arguments with argparse
