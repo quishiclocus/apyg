@@ -95,7 +95,7 @@ g = RandomPasswordStack()
 
 # Create i passwords of j length
 for x in range(opt.n):
-    g.push(opt.plen, opt.m, opt.seed, opt.special_chars, opt.strict)
+    g.push(opt.plen, opt.m, opt.seed, opt.special_chars)
 
 # Print passwords
 while len(g.pwords) > 0:
@@ -111,7 +111,7 @@ while len(g.pwords) > 0:
         p = CryptPrint()
         p.print_new_password_crypt(newpword, opt.seed, opt.plen)
     # Strict checking
-    if g.strictpool(newpword, opt.strict) is True and opt.strict is True:
+    if g.strictpool(newpword) is True and opt.strict is True:
         sys.stdout.write(" --> passes strict checks")
         # sys.stdout.write("")
     sys.stdout.write("\n")

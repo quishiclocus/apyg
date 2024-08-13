@@ -38,7 +38,7 @@ class RandomPasswordStack():
             tmps += sp
         s = self.cleanpool(tmps)
         random.shuffle(s)
-        return (s)
+        return s
 
     # Clean ambiguous and unwated characters from the genpool.
     def cleanpool(self, pool):
@@ -53,7 +53,7 @@ class RandomPasswordStack():
 
     # Perform strict checks to ensure lower, upper,
     # digit, and special characters.
-    def strictpool(self, pool, strict):
+    def strictpool(self, pool):
         """strictpool
 
         Runs checks for lower, upper, digits, and punctuation
@@ -83,21 +83,21 @@ class RandomPasswordStack():
         return check
 
     # Create 1 password, between m and l characters long.
-    def genpword(self, l, m, s, sp):
+    def genpword(self, plen, pmin, s, spc):
         """genpword
 
         Generates a random password from a pool.
         """
         c = ''
         apass = ''
-        pool = self.genpool(l, m, s, sp, str)
-        for k in range(random.randint(m, l)):
+        pool = self.genpool(plen, s, spc)
+        for k in range(random.randint(pmin, plen)):
             random.shuffle(pool)
             while pool[k] == c:
                 del pool[k]
             apass += pool[k]
             c = pool[k]
-        return (apass)
+        return apass
 
     # Push a new password onto the stack.
     def push(self, length, minlength, seed, spc):
@@ -107,8 +107,9 @@ class RandomPasswordStack():
     # Pop a new password from the stack.
     def pop(self):
         """pop method for processing the pool."""
-        if len(self.pwords) != 0:
-            newpword = self.pwords.pop()
-            return newpword
+        if len(self.pwords) == 0:
+            raise EnvironmentError()
+        newpword = self.pwords.pop()
+        return newpword
 # End of class RandomPasswordStack
 ###############
