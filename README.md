@@ -25,6 +25,16 @@ Defaults: 1 password, 8 characters long
 \*\*NOTE: If you use the crypt function, it is best to have a diverse set of
 minimum and maximum lengths. Also, the crypt function is currently broken.
 
+To build and install apyg, run the following commands from the top directory.
+
+Build or install:
+
+`python3 setup.py [build|install]`
+
+Build a source distribution:
+
+`python -m build --sdist`
+
 Bugs: chuck.stearns@gmail.com
 
 Changelog:
