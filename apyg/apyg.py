@@ -58,7 +58,8 @@ if __name__ == '__main__':
         help="print cryptographic hash of password",
     )
     o.add_argument(
-        "-n", "--number", type=int, dest="n", help="no. of passwords to generate"
+        "-n", "--number", type=int, dest="n",
+        help="no. of passwords to generate"
     )
     o.add_argument("-l", "--maxlen", type=int, dest="l",
                    help="maximum length of passwords")

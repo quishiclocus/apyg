@@ -7,10 +7,6 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "apyg"
 dynamic = ["version"]
-dependencies = [
-  "argparse",
-  "hashlib",
-]
 requires-python = ">=3.12"
 authors = [
   { name="quishiclocus", email="chuck.stearns@gmail.com" },
@@ -37,12 +33,8 @@ Issues = "https://github.com/quishiclocus/apyg/issues"
 Documentation = "https://github.com/quishiclocus/apyg/blob/master/README.md"
 ChangeLog = "https://github.com/quishiclocus/apyg/blob/master/README.md"
 
-[project.scripts]
-apyg = "apyg.py:__main__"
-
-[tool.setuptools.packages.find]
-where = ["./src"]
-include = ["apyg*"]
+[tool.setuptools]
+packages = ["apyg"]
 
 [tool.setuptools.dynamic]
 version = {attr = "apyg.__version__"}
