@@ -33,9 +33,11 @@ Issues = "https://github.com/quishiclocus/apyg/issues"
 Documentation = "https://github.com/quishiclocus/apyg/blob/master/README.md"
 ChangeLog = "https://github.com/quishiclocus/apyg/blob/master/README.md"
 
-[tool.setuptools]
-packages = ["apyg"]
-
 [tool.setuptools.dynamic]
 version = {attr = "apyg.__version__"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["apyg*"]  # alternatively: `exclude = ["additional*"]`
+namespaces = false
 
