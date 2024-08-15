@@ -10,12 +10,20 @@
         name = "simple";
         src = ./.;
         pkgs = nixpkgs.legacyPackages.${system};
+        nativeBuildInputs = with pkgs; [
+          python312
+        ];
+        buildInputs = with pkgs; [
+          (python312.withPackages (ps: [
+            ps.pip
+            ps.setuptools
+          ]))
+        ];
       in
+      with pkgs;
       {
-        packages.default = derivation {
-          inherit system name src;
-          builder = with pkgs; "${bash}/bin/bash";
-          args = [ "-c" "echo foo > $out" ];
+        devShells.default = mkShell {
+          inherit buildInputs nativeBuildInputs;
         };
         packages.apyg =
           let
