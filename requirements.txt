@@ -1,2 +1,2 @@
 build==1.2.1
-setuptools==69.5.1.post0
+setuptools==70.0.0
