@@ -29,21 +29,27 @@
               # https://nixos.wiki/wiki/Packaging/Binaries
               src = pkgs.fetchurl {
                 url =
-                  "https://github.com/shaka-project/shaka-packager/releases/download/v${version}/packager-linux-x64";
-                sha256 = "sha256-MoMX6PEtvPmloXJwRpnC2lHlT+tozsV4dmbCqweyyI0=";
+                  "https://github.com/quishiclocus/apyg/releases/download/0.9.1-2/apyg-0.9.1.tar.gz";
+                sha256 = "sha256-4962ad1ce90a1af50ce4af1f486c4e02e0d297a883b90e317e6fce8cf399b21c";
               };
 
-              dontUnpack = true;
               sourceRoot = ".";
 
               installPhase = ''
-                install -m755 -D $src $out/bin/shaka-packager
+                python setup.py install
               '';
 
+              buildPhase = ''
+                python -m build
+              ''
+
+              sourcePhase = ''
+                python -m build --sdist
+              ''
               meta = with nixpkgs.lib; {
-                homepage = "https://shaka-project.github.io/shaka-packager/html/";
+                homepage = "https://github.com/quishiclocus/apyg/";
                 description =
-                  "Media packaging framework for VOD and Live DASH and HLS applications";
+                  "Generate random strings of varying length and complexity.";
                 platforms = platforms.linux;
               };
             };
