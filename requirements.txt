@@ -1,2 +1,0 @@
-build==1.2.1
-setuptools==70.0.0
