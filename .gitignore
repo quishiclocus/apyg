@@ -4,6 +4,7 @@
 # Python artifacts
 /*.egg-info/
 /__pycache__/
+poetry-demo/
 
 # Nix artifacts
 result

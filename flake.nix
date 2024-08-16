@@ -16,6 +16,7 @@
         buildInputs = with pkgs; [
           (python312.withPackages (ps: [
             ps.pip
+            ps.pipx
             ps.build
             ps.setuptools
           ]))
