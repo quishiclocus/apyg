@@ -10,12 +10,13 @@
         name = "simple";
         src = ./.;
         pkgs = nixpkgs.legacyPackages.${system};
-        nativeBuildInputs = with pkgs; [
+        nativeBuildInputs = with pkgs; [(
           python312
-        ];
+        )];
         buildInputs = with pkgs; [
           (python312.withPackages (ps: [
             ps.pip
+            ps.build
             ps.setuptools
           ]))
         ];
@@ -32,6 +33,7 @@
           in
           stdenv.mkDerivation
             {
+              inherit buildInputs nativeBuildInputs;
               name = "apyg-${version}";
 
               # https://nixos.wiki/wiki/Packaging/Binaries
@@ -41,19 +43,29 @@
                 sha256 = "sha256-r4BuwWFbQU5q0HVg82vELe/UyX9A788IOZkGDYBZpDc=";
               };
 
-              sourceRoot = ".";
+              preUnpack = ''
+              '';
+
+              unpackPhase = ''
+              '';
+
+              postUnpack = ''
+              '';
 
               installPhase = ''
-                python setup.py install
+              '';
+
+              preBuild = ''
               '';
 
               buildPhase = ''
                 python -m build
               '';
 
-              sourcePhase = ''
-                python -m build --sdist
+              postBuild = ''
               '';
+
+              outputs = [ "out" ];
 
               meta = with nixpkgs.lib; {
                 homepage = "https://github.com/quishiclocus/apyg/";
