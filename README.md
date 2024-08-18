@@ -27,13 +27,11 @@ minimum and maximum lengths. Also, the crypt function is currently broken.
 
 To build and install apyg, run the following commands from the top directory.
 
-Build or install:
-
-`python3 setup.py [build|install]`
-
 Build a source distribution:
 
-`python -m build --sdist`
+`poetry build`
+
+To use the script, run `pip install .` in the repo directory.
 
 Bugs: chuck.stearns@gmail.com
 
