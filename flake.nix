@@ -7,7 +7,6 @@
   outputs = { self, nixpkgs, flake-utils }:
     flake-utils.lib.eachDefaultSystem (system:
       let
-        name = "simple";
         src = ./.;
         pkgs = nixpkgs.legacyPackages.${system};
         nativeBuildInputs = with pkgs; [(
@@ -25,10 +24,26 @@
       with pkgs;
       {
         devShells.default = mkShell {
+          name = "[nix develop]";
           inherit buildInputs nativeBuildInputs;
+          shellHook =
+            ''
+              echo "Welcome to $name"
+              source ~/.bashrc
+            '';
+        };
+        packages.default = mkShell {
+          name = "nix shell";
+          inherit buildInputs nativeBuildInputs system src;
+          shellHook =
+            ''
+              echo "Welcome to $name!"
+              ZDOTDIR=/Users/chuck/.zshrc_nix/ /Users/chuck/.nix-profile/bin/zsh
+            '';
         };
         packages.apyg =
           let
+            name = "apyg";
             version = "0.9.1";
             inherit (pkgs) stdenv lib;
           in

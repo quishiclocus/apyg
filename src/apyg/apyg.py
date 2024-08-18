@@ -8,15 +8,16 @@ Generate random alphanumeric strings.
 See README for usage and installation.
 """
 
+from __init__ import __version__
+
 # Standard Library Imports
 import argparse
 import sys
 
 # Custom Library Imports
-from apyglib.random_password_stack import RandomPasswordStack
 from apyglib.crypt_print import CryptPrint
 from apyglib.phoenetic import Phoenetic
-from __init__ import __version__
+from apyglib.random_password_stack import RandomPasswordStack
 
 # Set up default values and arguments with argparse
 if __name__ == '__main__':
