@@ -1,43 +1,19 @@
-[build-system]
-requires = [
-  "setuptools>=69.5",
-  ]
-build-backend = "setuptools.build_meta"
-
-[project]
+[tool.poetry]
 name = "apyg"
-dynamic = ["version"]
-requires-python = ">=3.12"
-authors = [
-  { name="quishiclocus", email="chuck.stearns@gmail.com" },
-]
-maintainers = [
-  { name="quishiclocus", email="chuck.stearns@gmail.com" },
-]
-description = "A random string generator with options"
-readme = {file = "README.md", content-type = "text/markdown"}
-license = {text = "MIT License"}
-keywords = ["apyg", "setuptools", "development", "password", "generator",
-            "cryptography", "security"]
-classifiers = [
-    "Development Status :: 4 - Beta",
-    "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
-    "Operating System :: OS Independent",
+version = "0.9.1"
+description = "A text string generator with many options."
+authors = ["Chuck Stearns <chuck.stearns@gmail.com>"]
+readme = "README.md"
+packages = [
+    { include = "apyg", from = "./src" },
+    { include = "apyglib", from = "./src" }
 ]
 
-[project.urls]
-Homepage = "https://github.com/quishiclocus/apyg"
-Repository = "https://github.com/quishiclocus/apyg.git"
-Issues = "https://github.com/quishiclocus/apyg/issues"
-Documentation = "https://github.com/quishiclocus/apyg/blob/master/README.md"
-ChangeLog = "https://github.com/quishiclocus/apyg/blob/master/README.md"
 
-[tool.setuptools.dynamic]
-version = {attr = "apyg.__version__"}
+[tool.poetry.dependencies]
+python = "^3.12"
+pytest = "^8.3.2"
 
-[tool.setuptools.packages.find]
-where = ["src"]
-include = ["apyg*"]  # alternatively: `exclude = ["additional*"]`
-namespaces = false
-
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
