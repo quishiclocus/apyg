@@ -11,13 +11,13 @@
         pkgs = nixpkgs.legacyPackages.${system};
         nativeBuildInputs = with pkgs; [(
           python312
+          poetry
         )];
         buildInputs = with pkgs; [
           (python312.withPackages (ps: [
             ps.pip
             ps.pipx
-            ps.build
-            ps.setuptools
+            ps.poetry-core
           ]))
         ];
       in
