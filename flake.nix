@@ -9,11 +9,8 @@
       let
         src = ./.;
         pkgs = nixpkgs.legacyPackages.${system};
-        nativeBuildInputs = with pkgs; [(
-          python312
-          poetry
-        )];
         buildInputs = with pkgs; [
+          poetry
           (python312.withPackages (ps: [
             ps.pip
             ps.pipx
@@ -25,7 +22,7 @@
       {
         devShells.default = mkShell {
           name = "[nix develop]";
-          inherit buildInputs nativeBuildInputs;
+          inherit buildInputs;
           shellHook =
             ''
               echo "Welcome to $name"
@@ -34,7 +31,7 @@
         };
         packages.default = mkShell {
           name = "nix shell";
-          inherit buildInputs nativeBuildInputs system src;
+          inherit buildInputs system src;
           shellHook =
             ''
               echo "Welcome to $name!"
