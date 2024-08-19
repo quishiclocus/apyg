@@ -9,9 +9,10 @@ packages = [
     { include = "apyglib", from = "./src" }
 ]
 
-
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "^3.8"
+
+[tool.poetry.group.dev.dependencies]
 pytest = "^8.3.2"
 
 [build-system]
