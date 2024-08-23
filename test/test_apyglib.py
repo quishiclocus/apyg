@@ -1,7 +1,7 @@
 import io
 import unittest
 import unittest.mock
-from apyglib.phoenetic import Phoenetic
+from apyglib import phoenetic
 from apyglib.crypt_print import CryptPrint
 from apyglib.random_password_stack import RandomPasswordStack
 
@@ -9,7 +9,9 @@ from apyglib.random_password_stack import RandomPasswordStack
 class TestPhoenetic(unittest.TestCase):
 
     def test_print_new_password_phoenetic(self):
-        pass
+        p = phoenetic.Phoenetic()
+        result = p.print_new_password_phoenetic("a")
+        assert result == " alpha"
 
     def test_phoenetic_function(self):
         pass

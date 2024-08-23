@@ -110,12 +110,15 @@ class Phoenetic():
         """
         count = 0
         if pword:
+            result = " "
             sys.stdout.write(" ")
         for j in pword:
+            result += self.phoenetics[j]
             sys.stdout.write(self.phoenetics[j])
             if count < (len(pword) - 1):
                 sys.stdout.write("_")
             count += 1
+        return result
 
     def phoenetic_function(self):
         """phoenetic_function
