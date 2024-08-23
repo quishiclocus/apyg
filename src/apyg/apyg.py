@@ -8,11 +8,11 @@ Generate random alphanumeric strings.
 See README for usage and installation.
 """
 
-from __init__ import __version__
-
 # Standard Library Imports
 import argparse
 import sys
+
+from __init__ import __version__
 
 # Custom Library Imports
 from apyglib.crypt_print import CryptPrint
