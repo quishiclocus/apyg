@@ -5,6 +5,10 @@
 /*.egg-info/
 **/__pycache__/
 poetry-demo/
+.pytest_cache/
 
 # Nix artifacts
 result
+
+# VSCode artifacts
+.vscode/

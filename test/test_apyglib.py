@@ -2,16 +2,16 @@ import io
 import unittest
 import unittest.mock
 from apyglib import phoenetic
-from apyglib.crypt_print import CryptPrint
-from apyglib.random_password_stack import RandomPasswordStack
+from apyglib import crypt_print
+from apyglib import random_password_stack
 
 
 class TestPhoenetic(unittest.TestCase):
 
     def test_print_new_password_phoenetic(self):
         p = phoenetic.Phoenetic()
-        result = p.print_new_password_phoenetic("a")
-        assert result == " alpha"
+        result_p = p.print_new_password_phoenetic("a")
+        assert result_p == " alpha"
 
     def test_phoenetic_function(self):
         pass
@@ -20,7 +20,9 @@ class TestPhoenetic(unittest.TestCase):
 class TestCryptPrint(unittest.TestCase):
 
     def test_print_new_password_crypt(self):
-        pass
+        c = crypt_print.CryptPrint()
+        result_c = c.print_new_password_crypt("a", "", "4")
+        assert result_c == "ca234c55"
 
     def test_crypt_function(self):
         pass
