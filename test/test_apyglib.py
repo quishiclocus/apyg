@@ -1,4 +1,5 @@
 import io
+import string
 import unittest
 import unittest.mock
 from apyglib import phoenetic
@@ -31,7 +32,24 @@ class TestCryptPrint(unittest.TestCase):
 class TestRandomPasswordStack(unittest.TestCase):
 
     def test_genpool(self):
-        pass
+        rps = random_password_stack.RandomPasswordStack()
+        jlen = 4
+        jseed = ["", "hello", "123"]
+        jspc = [False, True]
+        result_rps = rps.genpool(jlen, jseed[0], jspc[0])
+        assert len(result_rps) > jlen
+        result_rps = rps.genpool(jlen, jseed[0], jspc[1])
+        result_punc = ""
+        for e in result_rps:
+            if e in string.punctuation:
+                result_punc += e
+        assert len(result_punc) > 0
+        result_rps = rps.genpool(jlen, jseed[1], jspc[0])
+        assert len(result_rps) == 7
+        result_rps = rps.genpool(jlen, jseed[1], jspc[1])
+        assert len(result_rps) == 11
+        
+        
 
     def test_cleanpool(self):
         pass
