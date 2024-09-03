@@ -52,8 +52,14 @@ class TestRandomPasswordStack(unittest.TestCase):
 
     def test_cleanpool(self):
         """test cleanpool function"""
+        pool = ["A", "a", "1", "_", ">"]
+        clean_pool = random_password_stack.RandomPasswordStack.cleanpool(self, pool)
+        assert len(clean_pool) == 3
+        assert clean_pool[2] == "_"
+
+    def test_strictpool(self):
+        """test strictpool function"""
         pool = ["A", "a", "1", "_"]
-        lower = upper = digit = punct = False
         for chk in pool:
             if chk.islower():
                 assert chk.islower() is True
@@ -75,11 +81,6 @@ class TestRandomPasswordStack(unittest.TestCase):
                 assert chk.isupper() is False
                 assert chk.isdigit() is False
                 assert any(char in string.punctuation for char in chk) is True
-
-
-    def test_strictpool(self):
-        """test strictpool function"""
-        pass
 
     def test_genpword(self):
         """test genpword function"""
