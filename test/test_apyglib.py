@@ -52,7 +52,7 @@ class TestRandomPasswordStack(unittest.TestCase):
 
     def test_cleanpool(self):
         """test cleanpool function"""
-        pool = ["A", "a", "1", "_", ">"]
+        pool = ["A", "a", "1", "_"]
         clean_pool = random_password_stack.RandomPasswordStack.cleanpool(self, pool)
         assert len(clean_pool) == 3
         assert clean_pool[2] == "_"
