@@ -36,7 +36,9 @@ class CryptPrint():
         else:
             h = blake2b(digest_size=digest_size)
         h.update(pw)
-        sys.stdout.write(h.hexdigest())
+        result = h.hexdigest()
+        sys.stdout.write(result)
+        return result
 
     # Some other crypt function TBD.
     def crypt_function(self):

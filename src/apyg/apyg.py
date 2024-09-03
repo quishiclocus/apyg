@@ -12,7 +12,8 @@ See README for usage and installation.
 import argparse
 import sys
 
-from __init__ import __version__
+# Inport Init
+from . import init
 
 # Custom Library Imports
 from apyglib.crypt_print import CryptPrint
@@ -26,7 +27,7 @@ if __name__ == '__main__':
         epilog="Defaults: 1 password, 8 characters long",
     )
     o.add_argument("-V", "-v", "--version",
-                   action="version", version="%(prog)s " + __version__)
+                   action="version", version="%(prog)s " + init.__version__)
     o.add_argument(
         "-t",
         "--strict",

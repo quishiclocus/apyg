@@ -57,15 +57,15 @@ class RandomPasswordStack():
         """
         check1 = check2 = check3 = check4 = False
         for chk in pool:
-            if chk.lower():
+            if chk.islower() is True:
                 check1 = True
                 break
         for chk in pool:
-            if chk.upper():
+            if chk.isupper() is True:
                 check2 = True
                 break
         for chk in pool:
-            if chk in string.digits:
+            if chk.isdigit():
                 check3 = True
                 break
         for chk in pool:
