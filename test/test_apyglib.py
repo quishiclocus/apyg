@@ -1,4 +1,3 @@
-import io
 import string
 import unittest
 import unittest.mock
@@ -30,8 +29,10 @@ class TestCryptPrint(unittest.TestCase):
 
 
 class TestRandomPasswordStack(unittest.TestCase):
+    """test RandomPasswordStack class"""
 
     def test_genpool(self):
+        """test genpool function"""
         rps = random_password_stack.RandomPasswordStack()
         jlen = 4
         jseed = ["", "hello", "123"]
@@ -48,20 +49,46 @@ class TestRandomPasswordStack(unittest.TestCase):
         assert len(result_rps) == 7
         result_rps = rps.genpool(jlen, jseed[1], jspc[1])
         assert len(result_rps) == 11
-        
-        
 
     def test_cleanpool(self):
-        pass
+        """test cleanpool function"""
+        pool = ["A", "a", "1", "_"]
+        lower = upper = digit = punct = False
+        for chk in pool:
+            if chk.islower():
+                assert chk.islower() is True
+                assert chk.isupper() is False
+                assert chk.isdigit() is False
+                assert any(char in string.punctuation for char in chk) is False
+            if chk.isupper():
+                assert chk.islower() is False
+                assert chk.isupper() is True
+                assert chk.isdigit() is False
+                assert any(char in string.punctuation for char in chk) is False
+            if chk.isdigit():
+                assert chk.islower() is False
+                assert chk.isupper() is False
+                assert chk.isdigit() is True
+                assert any(char in string.punctuation for char in chk) is False
+            if chk in string.punctuation:
+                assert chk.islower() is False
+                assert chk.isupper() is False
+                assert chk.isdigit() is False
+                assert any(char in string.punctuation for char in chk) is True
+
 
     def test_strictpool(self):
+        """test strictpool function"""
         pass
 
     def test_genpword(self):
+        """test genpword function"""
         pass
 
     def test_push(self):
+        """test push function"""
         pass
 
     def test_pop(self):
+        """test pop function"""
         pass
